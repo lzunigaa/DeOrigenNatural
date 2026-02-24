@@ -113,6 +113,59 @@ async def create_contact_message(input: ContactMessageCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     
     _ = await db.contact_messages.insert_one(doc)
+    
+    # Send email notification
+    try:
+        html_content = f"""
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #1A3C34; border-bottom: 2px solid #C06E52; padding-bottom: 10px;">
+                Nuevo Mensaje de Contacto - CAOJAMBO
+            </h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Nombre:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{input.name}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Empresa:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{input.company or 'No especificada'}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Email:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;"><a href="mailto:{input.email}" style="color: #C06E52;">{input.email}</a></td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Teléfono:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{input.phone or 'No especificado'}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Servicio de Interés:</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{input.service_interest or 'No especificado'}</td>
+                </tr>
+            </table>
+            <div style="margin-top: 20px; padding: 15px; background-color: #FDFBF7; border-left: 4px solid #C06E52;">
+                <h3 style="color: #1A3C34; margin-top: 0;">Mensaje:</h3>
+                <p style="color: #5C5C5C; line-height: 1.6;">{input.message}</p>
+            </div>
+            <p style="margin-top: 20px; font-size: 12px; color: #5C5C5C;">
+                Este mensaje fue enviado desde el formulario de contacto de la web De Origen Natural Company.
+            </p>
+        </div>
+        """
+        
+        params = {
+            "from": SENDER_EMAIL,
+            "to": [CONTACT_EMAIL],
+            "subject": f"Nuevo contacto: {input.name} - {input.service_interest or 'Consulta general'}",
+            "html": html_content
+        }
+        
+        await asyncio.to_thread(resend.Emails.send, params)
+        logger.info(f"Email sent to {CONTACT_EMAIL} for contact from {input.email}")
+    except Exception as e:
+        logger.error(f"Failed to send email notification: {str(e)}")
+        # Don't raise exception - still save the contact even if email fails
+    
     return contact_obj
 
 @api_router.get("/contact", response_model=List[ContactMessage])
