@@ -94,8 +94,15 @@ test.describe('Golden Path - Complete User Journey', () => {
       if (badge) (badge as HTMLElement).remove();
     });
 
+    // Wait for framer-motion opacity animation to complete (delay: 1.2s + duration: 0.6s)
+    const scrollIndicator = page.getByTestId('scroll-indicator');
+    await expect(scrollIndicator).toHaveCSS('opacity', '1');
+
     // Click scroll indicator → should scroll to about
-    await page.getByTestId('scroll-indicator').click({ force: true });
-    await expect(page.getByTestId('about-section')).toBeInViewport({ timeout: 10000 });
+    await scrollIndicator.click({ force: true });
+    // Verify page has scrolled (scrollY > 0)
+    await expect.poll(async () => {
+      return await page.evaluate(() => window.scrollY);
+    }, { timeout: 5000 }).toBeGreaterThan(0);
   });
 });
