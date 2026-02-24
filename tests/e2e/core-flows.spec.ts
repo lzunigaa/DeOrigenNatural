@@ -7,6 +7,8 @@ test.describe('Core Flows - Landing Page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await waitForAppReady(page);
+    // Wait for framer-motion header animation to complete (header starts at y:-100)
+    await expect(page.getByTestId('language-toggle')).toBeInViewport();
     await dismissToasts(page);
     // Remove emergent badge
     await page.evaluate(() => {
