@@ -1,0 +1,169 @@
+{
+  "identity": {
+    "brand_name": "De Origen Natural Company",
+    "theme": "The Amazonian Guardian",
+    "mode": "light",
+    "keywords": ["Premium", "Trust", "Security", "Organic", "Traceable", "Amazonian"],
+    "colors": {
+      "primary": "#1A3C34",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#FDFBF7",
+      "secondary_foreground": "#1A3C34",
+      "accent": "#C06E52",
+      "accent_foreground": "#FFFFFF",
+      "muted": "#E5E0D8",
+      "muted_foreground": "#5C5C5C",
+      "background": "#FDFBF7",
+      "foreground": "#1A3C34",
+      "success": "#4A6C45",
+      "border": "#E5E0D8",
+      "ring": "#C06E52"
+    },
+    "typography": {
+      "headings": {
+        "family": "Playfair Display, serif",
+        "weights": ["400", "600", "700"],
+        "usage": "Use for all H1-H3. Tight tracking (-0.02em). Elegant and editorial."
+      },
+      "body": {
+        "family": "Manrope, sans-serif",
+        "weights": ["300", "400", "500", "600"],
+        "usage": "Use for all paragraphs and UI elements. High legibility."
+      },
+      "mono": {
+        "family": "Space Mono, monospace",
+        "weights": ["400"],
+        "usage": "Use for traceability data, technical specs, and small labels."
+      }
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "spacing": {
+      "section_gap": "py-24 md:py-32",
+      "element_gap": "gap-6 md:gap-12"
+    },
+    "grid_system": {
+      "bento_varieties": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "process_timeline": "flex flex-col md:flex-row gap-8 overflow-x-auto snap-x",
+      "hero_overlay": "absolute inset-0 bg-gradient-to-r from-[#1A3C34]/90 to-transparent"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#1A3C34] text-white hover:bg-[#152F29] rounded-none px-8 py-4 font-medium tracking-wide transition-all shadow-[4px_4px_0px_0px_#C06E52] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none",
+      "secondary": "border border-[#1A3C34] text-[#1A3C34] hover:bg-[#1A3C34] hover:text-white rounded-none px-8 py-4 transition-all uppercase text-sm tracking-widest",
+      "ghost": "text-[#1A3C34] hover:text-[#C06E52] underline-offset-4 hover:underline transition-colors"
+    },
+    "cards": {
+      "feature": "bg-white border border-[#E5E0D8] p-8 hover:border-[#1A3C34] transition-colors duration-300 group",
+      "product": "relative aspect-[4/5] overflow-hidden group bg-[#E5E0D8]",
+      "stat": "flex flex-col items-center justify-center p-6 border-r border-[#E5E0D8] last:border-0"
+    },
+    "inputs": {
+      "default": "bg-transparent border-b border-[#1A3C34] rounded-none px-0 py-4 focus:ring-0 focus:border-[#C06E52] placeholder:text-[#1A3C34]/50 transition-colors"
+    },
+    "badges": {
+      "trust": "inline-flex items-center px-3 py-1 bg-[#4A6C45]/10 text-[#4A6C45] text-xs font-mono uppercase tracking-wider rounded-full border border-[#4A6C45]/20"
+    }
+  },
+  "sections": {
+    "hero": {
+      "type": "parallax_video_or_image",
+      "content": "Full screen height. Dark overlay. Big bold serif headline. Primary CTA 'Solicitar presupuesto'.",
+      "image_url": "https://images.unsplash.com/photo-1699575947488-30f08e71896b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxjYWNhbyUyMHBvZHMlMjB0cmVlJTIwYW1hem9uJTIwcmFpbmZvcmVzdCUyMHBlcnV2aWFufGVufDB8fHx8MTc3MTk2MzE1N3ww&ixlib=rb-4.1.0&q=85"
+    },
+    "about": {
+      "title": "Quiénes Somos / Who We Are",
+      "style": "Split screen. Text left, image right. Focus on 'Security' and 'Trust'.",
+      "image_url": "https://images.unsplash.com/photo-1699575678956-aefa714b67f0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxjYWNhbyUyMHBvZHMlMjB0cmVlJTIwYW1hem9uJTIwcmFpbmZvcmVzdCUyMHBlcnV2aWFufGVufDB8fHx8MTc3MTk2MzE1N3ww&ixlib=rb-4.1.0&q=85"
+    },
+    "processes": {
+      "title": "Nuestros Procesos / Our Processes",
+      "steps": ["Producir / Production", "Transportar / Transport", "Distribuir / Distribution"],
+      "style": "Horizontal timeline with icons or numbered steps. Use 'Space Mono' for step numbers.",
+      "image_url": "https://images.pexels.com/photos/6420910/pexels-photo-6420910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "essence_values": {
+      "title": "Nuestra Esencia & Valores / Essence & Values",
+      "values": ["Integridad / Integrity", "Trazabilidad / Traceability", "Sostenibilidad / Sustainability"],
+      "style": "Grid of 3 cards. Minimal icons. Hover effect reveals details."
+    },
+    "varieties": {
+      "title": "Nuestras Variedades / Our Varieties",
+      "style": "Bento grid. High-quality close-ups of beans/pods.",
+      "content": ["Majambo", "Cacao Fino de Aroma", "Derivados"],
+      "image_url": "https://images.pexels.com/photos/14436424/pexels-photo-14436424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "services": {
+      "title": "Nuestros Servicios / Our Services",
+      "list": ["Venta de granos", "Desarrollo de productos", "Servicio de exportación"],
+      "style": "List layout with large typography and distinctive separators."
+    },
+    "sustainability": {
+      "title": "Sostenibilidad / Sustainability",
+      "focus": ["Economía Circular", "Cero Residuos", "Biodiversidad"],
+      "style": "Green background section (#1A3C34 text on #E2E8E4 bg). Impact metrics.",
+      "image_url": "https://images.pexels.com/photos/7450070/pexels-photo-7450070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "gallery": {
+      "title": "Galería / Gallery",
+      "style": "Masonry grid with lightbox support. Mix of landscape and portrait.",
+      "image_url": "https://images.pexels.com/photos/33662910/pexels-photo-33662910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "contact": {
+      "title": "Contacto / Contact",
+      "style": "Simple form. 'Solicitar Presupuesto'. Map background optional.",
+      "fields": ["Name", "Company", "Email", "Phone", "Message", "Service Interest"]
+    },
+    "footer": {
+      "style": "Dark bg (#1A3C34). White text. Large logo. Language toggle."
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_bg": "https://images.unsplash.com/photo-1699575947488-30f08e71896b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxjYWNhbyUyMHBvZHMlMjB0cmVlJTIwYW1hem9uJTIwcmFpbmZvcmVzdCUyMHBlcnV2aWFufGVufDB8fHx8MTc3MTk2MzE1N3ww&ixlib=rb-4.1.0&q=85",
+      "forest_canopy": "https://images.unsplash.com/photo-1699575678956-aefa714b67f0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxjYWNhbyUyMHBvZHMlMjB0cmVlJTIwYW1hem9uJTIwcmFpbmZvcmVzdCUyMHBlcnV2aWFufGVufDB8fHx8MTc3MTk2MzE1N3ww&ixlib=rb-4.1.0&q=85",
+      "cacao_pod_green": "https://images.pexels.com/photos/14436424/pexels-photo-14436424.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "cacao_pod_ripe": "https://images.pexels.com/photos/7450070/pexels-photo-7450070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "beans_sack": "https://images.pexels.com/photos/6420910/pexels-photo-6420910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "beans_white": "https://images.pexels.com/photos/33662910/pexels-photo-33662910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    "icons": "Use 'lucide-react' for UI icons (Menu, Chevron, Search). Use 'phosphor-react' (thin weight) for feature icons."
+  },
+  "motion": {
+    "reveal": "initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }} viewport={{ once: true }}",
+    "stagger": "initial='hidden' whileInView='visible' viewport={{ once: true }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}",
+    "hover_lift": "hover:-translate-y-1 transition-transform duration-300"
+  },
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' and '@phosphor-icons/react'.",
+    "Install 'framer-motion' for animations.",
+    "Use 'Playfair Display' from Google Fonts for headings.",
+    "Use 'Manrope' from Google Fonts for body text.",
+    "Use 'Space Mono' from Google Fonts for data/specs.",
+    "Create a 'LanguageContext' to handle ES/EN toggling globally.",
+    "Ensure the 'Contact' form has a distinct 'Solicitar presupuesto' mode.",
+    "Implement the 'Sustainability' section with a distinct background color (#E2E8E4) to break the flow.",
+    "For the Gallery, use a simple grid that opens a Modal/Dialog with the full image.",
+    "Use the provided image URLs strictly. Do not use placeholders.",
+    "IMPORTANT: The 'Process' section must clearly show the steps: Produce -> Transport -> Distribute.",
+    "Ensure 'Security and Trust' is conveyed through the deep green color (#1A3C34) and clean, structured layout."
+  ],
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur) for sticky headers.",
+    "You MUST NOT apply universal transition. Eg: 'transition: all'.",
+    "You MUST NOT center align the app container.",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories = main agent will use placeholder text which is FORBIDDEN.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports.",
+    "Use 'sonner' for toasts."
+  ]
+}
