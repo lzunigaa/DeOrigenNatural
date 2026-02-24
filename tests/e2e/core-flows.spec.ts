@@ -7,8 +7,6 @@ test.describe('Core Flows - Landing Page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await waitForAppReady(page);
-    // Ensure language is set to Spanish
-    await page.evaluate(() => localStorage.setItem('language', 'es'));
     await dismissToasts(page);
     // Remove emergent badge
     await page.evaluate(() => {
