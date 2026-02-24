@@ -69,8 +69,9 @@ test.describe('Core Flows - Landing Page', () => {
 
   test('Mobile menu toggle opens and closes menu', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    // Wait for header animation at mobile viewport
+    await expect(page.getByTestId('mobile-menu-toggle')).toBeInViewport();
 
     const mobileToggle = page.getByTestId('mobile-menu-toggle');
     await expect(mobileToggle).toBeVisible();
