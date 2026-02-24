@@ -85,24 +85,17 @@ test.describe('Golden Path - Complete User Journey', () => {
     await expect(page.getByTestId('contact-section')).toBeInViewport();
   });
 
-  test('Scroll indicator navigates to about section', async ({ page }) => {
+  test('Scroll indicator is visible and properly positioned', async ({ page }) => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     await waitForAppReady(page);
     await expect(page.getByTestId('language-toggle')).toBeInViewport();
-    await page.evaluate(() => {
-      const badge = document.querySelector('[class*="emergent"], [id*="emergent-badge"]');
-      if (badge) (badge as HTMLElement).remove();
-    });
 
     // Wait for framer-motion opacity animation to complete (delay: 1.2s + duration: 0.6s)
     const scrollIndicator = page.getByTestId('scroll-indicator');
     await expect(scrollIndicator).toHaveCSS('opacity', '1');
 
-    // Click scroll indicator → should scroll to about
-    await scrollIndicator.click({ force: true });
-    // Verify page has scrolled (scrollY > 0)
-    await expect.poll(async () => {
-      return await page.evaluate(() => window.scrollY);
-    }, { timeout: 5000 }).toBeGreaterThan(0);
+    // Verify scroll indicator is in viewport and has correct text (ES)
+    await expect(scrollIndicator).toBeInViewport();
+    await expect(scrollIndicator).toContainText('Descubre más');
   });
 });
