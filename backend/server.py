@@ -167,7 +167,7 @@ async def create_contact_message(input: ContactMessageCreate):
         params = {
             "from": SENDER_EMAIL,
             "to": [CONTACT_EMAIL],
-            "subject": f"Nuevo contacto: {input.name} - {input.service_interest or 'Consulta general'}",
+            "subject": f"Nuevo contacto: {input.name} - {service_label}",
             "html": html_content
         }
         
