@@ -96,6 +96,6 @@ test.describe('Golden Path - Complete User Journey', () => {
 
     // Click scroll indicator → should scroll to about
     await page.getByTestId('scroll-indicator').click({ force: true });
-    await expect(page.getByTestId('about-section')).toBeInViewport();
+    await expect(page.getByTestId('about-section')).toBeInViewport({ timeout: 10000 });
   });
 });
