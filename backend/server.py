@@ -103,6 +103,14 @@ async def get_status_checks():
     
     return status_checks
 
+# Service interest mapping
+SERVICE_LABELS = {
+    "beans": "Venta de Granos",
+    "development": "Desarrollo de Productos",
+    "export": "Servicio de Exportación",
+    "other": "Otro"
+}
+
 # Contact routes
 @api_router.post("/contact", response_model=ContactMessage)
 async def create_contact_message(input: ContactMessageCreate):
@@ -113,6 +121,9 @@ async def create_contact_message(input: ContactMessageCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     
     _ = await db.contact_messages.insert_one(doc)
+    
+    # Get readable service label
+    service_label = SERVICE_LABELS.get(input.service_interest, input.service_interest) if input.service_interest else 'No especificado'
     
     # Send email notification
     try:
@@ -140,7 +151,7 @@ async def create_contact_message(input: ContactMessageCreate):
                 </tr>
                 <tr>
                     <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8; font-weight: bold; color: #1A3C34;">Servicio de Interés:</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{input.service_interest or 'No especificado'}</td>
+                    <td style="padding: 10px 0; border-bottom: 1px solid #E5E0D8;">{service_label}</td>
                 </tr>
             </table>
             <div style="margin-top: 20px; padding: 15px; background-color: #FDFBF7; border-left: 4px solid #C06E52;">
